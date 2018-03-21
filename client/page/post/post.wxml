@@ -1,0 +1,53 @@
+<import src="../../../common/head.wxml" />
+<import src="../../../common/foot.wxml" />
+
+<view class="page">
+    <form bindsubmit="formSubmit">
+          <view class="page-section page-section-gap">            
+            <radio-group name="radio">
+              <label><radio value="radio1"/>主题</label>
+              <label style='margin-left: 200px'><radio value="radio2"/>活动</label>
+            </radio-group>
+          </view>
+                    
+        <view class="weui-uploader">
+          <view class="weui-uploader__hd">
+            <input id="input_title" bindchange="input_title" class="weui-input" maxlength='100' style="width:100%" placeholder="请输入标题" />
+          </view>
+          <view class="weui-uploader__hd">              
+              <textarea placeholder="这一刻的想法..." name="content" maxlength="5000" auto-height="true" style="min-height:200rpx; width:100%" cursor-spacing="20"  bindblur="textChange"/>
+          </view>
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files">
+              <block wx:for="{{imageList}}" wx:for-item="image">
+                <view class="weui-uploader__file">
+                  <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                </view>
+              </block>
+            </view>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+            </view>
+          </view>
+          <view class='divLine'></view>
+          <view wx:if="{{isSpeaking}}" class="speak-style"> 
+            <image class="sound-style" src="sound/voice_icon_speech_sound_1.png" ></image> 
+            <image wx:if="{{j==2}}" class="sound-style" src="sound/voice_icon_speech_sound_2.png" ></image> 
+            <image wx:if="{{j==3}}" class="sound-style" src="sound/voice_icon_speech_sound_3.png" ></image> 
+            <image wx:if="{{j==4}}" class="sound-style" src="sound/voice_icon_speech_sound_4.png" ></image> 
+            <image wx:if="{{j==5}}"class="sound-style" src="sound/voice_icon_speech_sound_5.png" ></image> 
+          </view>
+          
+          <view class="page-section page-section-gap" style="text-align: center; margin-top: 10px">
+            <audio style="text-align: left" src="{{current.src}}" poster="{{current.poster}}" name="{{current.name}}" author="{{current.author}}" action="{{audioAction}}" controls></audio>
+          </view>
+
+          <view class="record-style">
+             <button class="btn-style" bindtouchstart="touchdown" bindtouchend="touchup">按住 录音</button>
+          </view>
+        </view>
+        <view class="weui-btn-area">
+             <button type="primary" loading="{{loading}}" form-type="submit">{{submitText}}</button>
+        </view>
+    </form>
+</view>

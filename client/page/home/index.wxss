@@ -1,0 +1,170 @@
+@import "../common/lib/weui.wxss";
+
+/*整体view样式*/
+.containsView{
+ padding: 15rpx 15rpx 15rpx 15rpx;
+ margin-top: 15rpx;
+ margin-bottom: 15rpx;
+ background-color: white; 
+}
+/*头部整体样式*/
+.topContainsView{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ margin-bottom: 18rpx;
+}
+ 
+/**
+ * 头像样式
+*/
+.profileImage{
+ width: 60rpx;
+ height: 60rpx;
+ border-radius: 30rpx;
+}
+ 
+/*头部显示名字和时间整体样式*/
+.topRightView{
+ margin-left: 15rpx;
+ display: flex;
+ flex-direction: column;
+}
+/*用户名称样式*/
+.topRightName{
+ font-size: 24rpx;
+}
+/*时间样式*/
+.topRightTime{
+ font-size: 18rpx;
+ color: #b8b2b2;
+ margin-top: 10rpx;
+ width: 180rpx;
+}
+.topLeftImage{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 420rpx;
+}
+/*因为中间部分不一样不放在整体样式中*/
+
+/*中间文字样式*/
+.centerContent{
+  margin-left: 70rpx;   
+  margin-top: 10rpx;
+  width: 80%;
+  height: 300rpx;
+}
+.image-row {  
+  width: 100%;  
+  display: flex;  
+  flex-direction: row;  
+  justify-content: space-around;  
+}
+.image-size{
+  margin-left: 70rpx;   
+  margin-top: 5rpx;
+  position: relative;   
+    display: flex;  
+  flex-direction: row;    
+}
+
+.publishContentExpand{
+  margin-left: 70rpx; 
+  display: -webkit-box !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+}
+
+.publishContentCollapse{
+  margin-left: 70rpx; 
+  display: -webkit-box !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;  
+}
+
+/*中间浮动文字样式*/
+.flexView{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80rpx;
+  position: absolute;
+  z-index: 2;
+  top: 540rpx;
+  background: #000000;
+  opacity: 0.6 
+}
+/*浮动文字*/
+.flexText{
+ color: white;
+ font-size: 35rpx;
+}
+
+/*底部view整体样式*/
+.bottomView{
+  margin-left: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/*每个Item样式*/
+.bottomItemView{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ margin-top: 18rpx;
+ padding-left: 10rpx;
+ padding-right: 10rpx;
+}
+/*Item样式中的图标样式 顶 踩 分享 评论*/
+.bottomItemImage{
+ width: 30rpx;
+ height: 30rpx;
+}
+/*Item中的文字样式 顶 踩 分享 评论*/
+.bottomItemText{
+ font-size: 25rpx;
+ color: #b8b2b2;
+ margin-left: 10rpx;
+ margin-top: 5rpx;
+}
+ 
+/*分割线样式*/
+.divLine{
+ background: #f3f3f3;
+ width: 100%;
+ height: 15rpx;
+}
+
+.recommend_scroll_x_box {
+  height: 170rpx;
+  white-space: nowrap;
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.recommend_hot_box {
+  width: 260rpx;
+  height: 200rpx;
+  margin-right: 24rpx;
+  display: inline-block;
+}
+
+.recommend_hot_image {
+  width: 260rpx;
+  height: 163rpx;
+}

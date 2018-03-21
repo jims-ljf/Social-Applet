@@ -1,0 +1,89 @@
+<!--index.wxml-->
+<import src="../common/head.wxml" />
+<import src="../common/foot.wxml" />
+
+<view class="container">
+  <view class="btn-area" style="margin-top: -1px">    
+    <button type="button" bindtap='publish' style="background-color: #00B2EE;">早点发布</button>
+  </view>
+  <loading hidden="{{loadingHidden}}">正在加载...</loading>
+  <!--横向滚动-->
+  <scroll-view class="recommend_scroll_x_box" scroll-x="true">
+    <view class="recommend_hot_box" wx:for="{{otherlist}}" wx:key="item.PublishID">
+      <image src="{{item.PublishImage[0].src}}" class="recommend_hot_image"></image>
+      <text class="flexView">{{item.PublishTitle}}</text>
+    </view>
+  </scroll-view>
+  <!--纵向滚动-->
+  
+  <scroll-view scroll-y="true" bindscrolltolower="bindscrolltolower" bindscrolltoupper="bindscrolltoupper" style="height: 800rpx">    
+    <block wx:for="{{list}}" wx:key="item.PublishID">
+      <!-- 整体item样式 -->
+      <view class="containsView">
+        <view class="topContainsView">
+          <image class="profileImage" src="{{item.HeadPortrait}}" />
+          <view class="topRightView">
+            <text class="topRightName">{{item.CreatedUserName}}</text>
+            <text class="topRightTime">{{item.CreatedTime}}</text>
+          </view>
+          <image class='topLeftImage' src="../../images/friendlist.png"></image>
+        </view>
+        <!-- 中间内容 -->
+        <text bindtap="txtIsExpanded" id="{{item.PublishID}}" class="{{(isExpanded ? 'publishContentCollapse' : 'publishContentExpand') }}">{{item.PublishContent}}</text>          
+        <!-- 图片 -->
+                
+        <view wx:if="{{item.PublishImage.length == 1}}">
+            <image class="centerContent" src="{{item.PublishImage[0].src}}" data-index="{{index}}" data-src="{{item.PublishImage[0].src}}" mode="aspectFill" bindtap="previewImage"></image>
+        </view>
+        <view wx:else class="weui-grids">  
+          <view wx:for="{{item.PublishImage}}" wx:for-item="items" class="weui-grid" wx:key="{{index}}">  
+            <view class='weui-grid__icon'>       
+              <image class="" src="{{items.src}}" data-index="{{index}}" data-src="{{items.src}}" mode="scaleToFill" bindtap="previewImage" ></image> 
+            </view>            
+          </view>
+        </view>        
+        <!-- 底部view样式 -->
+        <view class="bottomView">              
+          <view class="bottomItemView">
+            <image class="bottomItemImage" src="../../images/comment.png" data-id="{{item.PublishID}}" bindtap="toCommentPage" />
+            <text class="bottomItemText">{{item.CommentTimes}}</text>
+          </view>
+          <view class="bottomItemView">
+            <image class="bottomItemImage" src="../../images/share.png" data-id="{{item.PublishID}}" bindtap="showModalEvent" />
+            <text class="bottomItemText">{{item.CommentTimes}}</text>
+          </view>
+          <view class="bottomItemView">
+            <image class="bottomItemImage" src="../../images/thumbsup.png" />
+            <text class="bottomItemText">{{item.ThumbsupTimes}}</text>  
+          </view>
+        </view>                               
+      </view>
+    </block>
+    <view class="loading" style='text-align: center;' hidden="{{!searchLoading}}">正在载入更多...</view>  
+    <view class="loading complete" style='text-align: center;' hidden="{{!searchLoadingComplete}}">已加载全部</view> 
+  </scroll-view>
+  <modal class="modal" confirm-text="取消" no-cancel hidden="{{modalHidden}}" bindconfirm="hideModalEvent">
+    <view class="share-list">
+      <view class="item">
+        <image src="../../images/share_qq.png" />
+      </view>
+      <view class="item">
+        <image src="../../images/share_pengyouquan.png" />
+      </view>
+      <view class="item">
+        <image src="../../images/share_qzone.png" />
+      </view>
+    </view>
+    <view class="share-list" style="margin-top: 20rpx">
+      <view class="item">
+        <image src="../../images/share_weibo.png" />
+      </view>
+      <view class="item">
+        <image src="../../images/share_alipay.png" />
+      </view>
+      <view class="item">
+        <image src="../../images/share_plus.png" />
+      </view>
+    </view>
+  </modal>
+</view>

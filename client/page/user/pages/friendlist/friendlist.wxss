@@ -1,0 +1,8 @@
+@import "../../../common/index.wxss";
+@import "../../../common/lib/weui.wxss";
+
+.weui-cell__bd{margin-left:10px;}
+.cell-info{font-size:14px;}
+.weui-cell__ft image{width:24px; height:24px;}
+.weui-cell_access>.weui-cell__bd{margin-left:0px;}
+.weui-cell_access>.weui-cell__hd image{width:24px;height:24px; vertical-align: middle; margin-right:5px;}

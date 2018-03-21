@@ -1,0 +1,42 @@
+<import src="../common/head.wxml" />
+
+<view class="container">
+
+  <view class="page-body">
+     <view class="page-section-ctn">
+          <image class="image" style="height: 30px" src="../../images/homephoto1.jpg"/>
+        </view>
+        <view class="page-section-ctn">
+          <image class="image" style="width: 100%;height:260px" src="../../images/homephoto.jpg"/>
+        </view>
+
+
+    <form catchsubmit="formSubmit">
+      <view class="page-section">
+
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input id="input_phoneNum" bindchange="input_phoneNum" type='number' class="weui-input" maxlength='11' placeholder="请输入手机号码" />
+            </view>
+          </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input id="input_identifyCode" bindchange="input_identifyCode" class="weui-input"  type ="number" placeholder="请输入验证码" />                              
+            </view>
+            <view class="weui-cell__ft">
+              <view class="weui-vcode-btn" bindtap="vcode">{{ c2 || '获取验证码' }}</view>
+            </view>
+          </view>
+        </view>
+        
+      </view>
+      <view class="btn-area">
+        <button type="button" bindtap='loginsys' style="background-color: #00B2EE">登  录</button>
+      </view>
+    </form>
+    <image class="page-section-ctn" style="height: 80px;width: 80px;padding-left: 290px;padding-top: 5px;" src="../../images/zaodian.png"></image>
+  </view>
+</view>

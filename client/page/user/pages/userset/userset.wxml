@@ -1,0 +1,100 @@
+<view class="page">
+  <form bindsubmit="formSubmit">
+    <input name="userId" value="{{UserId}}" hidden="true" />
+    <input name="headPortrait" value="{{HeadPortrait}}" hidden="true" />
+    <view class="weui-cells">
+      <navigator id="headPortrait" class="weui-cell weui-cell_access" bindtap="uploadHeadPortrait">
+        <view class="weui-cell__bd">
+          头像
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">
+          <image src="{{HeadPortrait}}" mode="aspectFill" />
+        </view>
+      </navigator>
+      <navigator id="backgroupImage" class="weui-cell weui-cell_access" bindtap="uploadHeadPortrait">
+        <view class="weui-cell__bd">
+          背景图片
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">
+          <image src="{{BackgroupImage}}" mode="aspectFill" />
+        </view>
+      </navigator>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          姓名
+          <b>*</b>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="username" maxlength="20" placeholder="暂无" value="{{UserName}}" />
+        </view>
+      </view>
+      <navigator class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">
+          性别
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">
+          <input hidden="true" name="sex" value="{{sexID}}" />
+          <picker bindchange="bindSexChange" value="{{sex}}" range="{{sexArr}}" range-key="name">
+            <view class="picker">
+              {{sexArr[sexID].name}}
+            </view>
+          </picker>
+        </view>
+      </navigator>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          生日          
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{birthdate}}" start="2005-09-01" end="2105-09-01" bindchange="bindDateChange">
+              <view class="weui-input">{{birthdate}}</view>
+            </picker>
+        </view>
+      </view>
+      <navigator class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">
+          省份
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">
+          <input hidden="true" name="provinceID" value="{{provinceID}}" />
+          <picker bindchange="bindProvinceChange" value="{{province}}" range="{{provinceArr}}" range-key="name">
+            <view class="picker">
+              {{provinceArr[provinceID].name}}
+            </view>
+          </picker>
+        </view>
+      </navigator>
+      <navigator class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">
+          城市
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">
+          <input hidden="true" name="cityID" value="{{cityID}}" />
+          <picker bindchange="bindCityChange" value="{{city}}" range="{{cityArr}}" range-key="name">
+            <view class="picker">
+              {{cityArr[cityID].name}}
+            </view>
+          </picker>
+        </view>
+      </navigator>      
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          注册时间
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="registtime" disabled="true" type='date' style="background:'#efefef'" placeholder="暂无" value="{{registtime}}" />
+        </view>
+      </view>      
+    </view>
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea placeholder="写点什么描述下自己" name="intro" maxlength="1000" style="height:160rpx" cursor-spacing="20" value="{{summary}}" />
+        </view>
+      </view>
+    </view>
+    <view class="weui-btn-area">
+      <button type="primary" loading="{{loading}}" form-type="submit">{{submitText}}</button>
+    </view>
+  </form>
+</view>

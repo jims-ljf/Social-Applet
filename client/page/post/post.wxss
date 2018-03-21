@@ -1,0 +1,33 @@
+@import "../common/lib/weui.wxss";
+
+.weui-uploader{
+  background-color:#fff;
+  padding:15px; 
+  overflow: hidden; 
+  clear: both
+  }
+.weui-uploader__footer{
+  font-weight:500; 
+  margin-top:10px; 
+  padding-top:3px; 
+  margin-left:-5px; 
+  padding-left:5px; 
+  background-size:26px; 
+  text-indent:24px;
+}
+
+.speak-style{ 
+  position: relative; 
+  height: 240rpx; 
+  width: 240rpx;
+  border-radius: 20rpx; 
+  margin: 0 auto; 
+  background: #26A5FF; 
+} 
+.sound-style{ 
+ position: absolute; 
+ width: 74rpx; 
+ height:150rpx; 
+ margin-top: 45rpx; 
+ margin-left: 83rpx; 
+} 

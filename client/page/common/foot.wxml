@@ -1,0 +1,5 @@
+<template name="foot">
+  <navigator class="page-foot" openType="switchTab" url="/page/login/index" hover-class="none">
+    <image class="icon-foot" src="../../../../images/zaodian.png"></image>
+  </navigator>
+</template>
